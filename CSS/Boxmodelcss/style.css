@@ -1,0 +1,16 @@
+#box{
+    border:5px dotted rgb(201, 12, 12);
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    background-color: yellow;
+    height: 200px;width: 200px;
+    padding: 8ch;
+    box-sizing: border-box;
+    margin:100px;
+}
+#box2{
+    background-color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}

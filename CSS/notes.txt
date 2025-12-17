@@ -1,0 +1,18 @@
+font-size: used for assigning certain fonts
+font-weight: defines the width/thickness(100-900/bold/bolder)
+font-style: normal/italic/oblique
+text-align:left/top/button/right/center/justify
+text-decoration: sizesolid/double/dotted/dashed/wavy color underline/overline/line-through
+text-transform: uppwercase/lowercase/capitalize/none
+text-shodow: x-axis y-axis z-axis color;
+background-clip: text make the background only for text
+
+units: units are used to measure size of property
+px - pixels are the smallest unit of measure in design. whole screen is divided into mxm(resolution) number of pixels
+% -- it repersents percent of parent size
+vh,vw -- viewport height/viewport width
+em - 1em is the 1 time of parent font size(enumerated value)
+rem(root enumerated value)-- it will take roots font size(defakut 16px)
+
+
+https://drive.google.com/drive/folders/16_FAQ8sL5sPeRZxq2gTGeLvjDKyrrpJT?usp=sharing

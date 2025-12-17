@@ -1,0 +1,51 @@
+body{
+    scrollbar-color: #ff0000 #00ff00;
+    scrollbar-width: thin;
+    height: 200vh;
+    }
+    /* WebKit browsers */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #ff0000;
+        border-radius: 4px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #00ff00;
+    }
+    *{
+        transition: all 0.8s ease;
+    }
+    #box{
+        transform-style: preserve-3d;
+        height: 200px;
+        width: 200px;
+        perspective: -600px;
+    }
+    .item{
+        border: 1px solid black;
+        padding: 50px;
+        box-sizing: border-box;
+        position: absolute;
+    
+    }
+    .front{
+        background-color: green;
+        color: white;
+        transform: rotateY(0deg);
+        backface-visibility: hidden;
+        z-index: 4;
+    }
+    .back{
+        color: black;
+    }
+    #box:hover{
+        transform: rotateY(180deg);
+        .front{
+            transform: rotateY(180deg);
+        }
+        .back{
+            transform: rotateY(-180deg);
+        }
+    }

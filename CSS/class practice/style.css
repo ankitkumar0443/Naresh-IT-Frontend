@@ -1,0 +1,16 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Canadian+Aboriginal:wght@100..900&display=swap');
+.container {
+    display: flex;
+    flex-direction: row;  /* Main axis → Horizontal */
+    height: 300px;
+    border: 2px solid black;
+    align-items: center; /* Align items in the center of cross axis (vertically) */
+}
+
+.item {
+    width: 100px;
+    height: 50px;
+    background-color: lightblue;
+    margin: 5px;
+}

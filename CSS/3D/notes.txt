@@ -1,0 +1,11 @@
+        backface-visibility: hidden
+        transform: rotateY(0deg);
+            ::-webkit-scrollbar-thumb 
+                scrollbar-color: #ff0000 #00ff00;
+    scrollbar-width: thin;
+            transform-style: preserve-3d;
+                  perspective: -600px;
+
+
+
+

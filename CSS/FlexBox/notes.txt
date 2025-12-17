@@ -1,0 +1,70 @@
+Flex is used to arrange elements in single direction i.e., row or column
+
+Always flex should be defined to the parent element
+
+Default direction for flex is row
+Parent Properties:
+display:flex
+flex-direction:row/column/row-reverse/column-reverse
+justify-content:left/right/start/end/center/space-around/space-between/space-evenly(horizontally)
+it arranges elements in same direction as flex direction
+align-items:left/right/start/end/center(vertically)
+it arranges elements in opposite direction of flex 
+gap: it is used to define gap between the elements
+flex-wrap:nowrap/wrap/wrap-reverse
+it is used to wrap up the elements until their width/height such that new lines will form
+align-content: left/right/start/end/center/space-around/space-between/space-evenly(vertical)
+it is used to arrange the lines formed by flex wrap
+
+child Properties:
+flex-grow: it is the measurement to increase an element when gap is available
+flex-shrink: it is the measurement to decrease an element when gap is not available
+flex-basis: it is the fixed size of an element irrespective of gap
+order: order is the number by which all elements are arranged and default order is 0
+ and default all are arranged with increasing order
+ Flexbox lab, flexbox froggy
+ 
+ Flexbox (Flexible Box Layout) is a CSS layout module that makes it easier to align,
+distribute, and position elements inside a container, especially when designing responsive web pages.
+
+Why Use Flexbox?
+✅ Easier alignment (horizontal & vertical centering)
+✅ Automatic resizing of elements
+✅ Equal spacing between items
+✅ Works great for both small & large layouts
+✅ Better handling of dynamic content
+
+When to Use Flexbox?
+✅ Navigation bars
+✅ Card layouts
+✅ Centering elements easily
+✅ Grid-like structures
+
+The max-content property in CSS is used for defining the width or height of an element based on the longest content inside it.
+It ensures that the element expands just enough to fit its content without wrapping or breaking.
+
+When to Use max-content?
+✅ Prevent text from wrapping unnecessarily
+✅ Make buttons, cards, or text boxes auto-size based on content
+✅ Ensure consistent layout without hardcoding width/height
+
+Difference Between align-items and align-content in Flexbox
+When working with CSS Flexbox, both align-items and align-content are used for vertical alignment,
+ but they behave differently depending on whether the flex container has extra space.
+
+ 1️⃣ align-items → Aligns items along the Cross Axis (Single Line)
+Works on individual flex items.
+Aligns items within the flex container along the cross axis.
+Affects all items in a single row.
+Works whether or not there's extra space.
+
+2️⃣ align-content → Aligns Lines in Multi-Line Flexbox
+Works only when flex-wrap is enabled (i.e., multiple lines of flex items).
+Controls how multiple rows (or columns) are spaced inside the flex container.
+Requires flex-wrap: wrap; and extra space in the container.
+
+🚀 Quick Comparison Table
+Property	   Works On  	     Requires Flex-Wrap?	   Works With Extra Space?	    Best Used When
+align-items	  Individual items	 ❌ No	  ❌ No              (Works anytime)	             Aligning single-line items
+align-content Rows/Columns	     ✅ Yes	  ✅ Yes             (Needs extra space)	         Aligning multiple lines
+
