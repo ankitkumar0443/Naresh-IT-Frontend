@@ -1,0 +1,179 @@
+AJAX(Asynchronous Javascript): it is a web development technique for creating dynamic and interactive web pages.
+   --> AJAX loads separately
+   --> AJAX uses Javascript to send request and handle the responses from server
+   --> Asynchronous functions basically takes some time and always return promises
+   Eg: timers(setTimeout,setInterval) , fetch etc..,
+
+   The primary purpose of an "AJAX timer" is to periodically trigger asynchronous requests to a server 
+   to update a portion of a web page without requiring a full page refresh. This creates a more dynamic 
+   and interactive user experience, often referred to as "real-time" or "live" updates.
+
+Here's a breakdown of its key purposes and benefits:
+
+Automatic Content Refresh:
+
+Live Data Feeds: Displaying constantly changing data like stock prices, sports scores, news headlines, or chat messages.
+Monitoring Dashboards: Updating system metrics, server logs, or IoT sensor readings at regular intervals.
+Notifications: Checking for new messages, friend requests, or other alerts without the user having to manually refresh.
+
+Enhanced User Experience (UX):
+
+Reduced Page Reloads: Avoids the disruptive flicker and loading time associated with full page refreshes, 
+leading to a smoother user experience.
+Seamless Updates: Users get fresh content automatically, without needing to take any action.
+
+Efficiency:
+Partial Page Updates: Instead of reloading the entire page (which can be resource-intensive), 
+an AJAX timer typically only fetches and updates the specific data that has changed, saving bandwidth and server resources.
+
+Use Cases in Web Development:
+Chat Applications: Regularly fetching new messages from the server to display in the chat window.
+Live Search Suggestions: While not strictly a timer, the concept of constantly checking for updates is similar. 
+As a user types, an AJAX request might be sent to fetch suggestions.
+
+Progress Indicators: Periodically checking the status of a long-running server process
+and updating a progress bar or message on the page.
+Session Management: Extending user sessions by sending a small request to the server at regular intervals.
+
+   setTimeout : it is used to assign a time for a callback function such that it will run only after given time is over
+setTimeout(()=>{
+   console.log("hi")
+},5000)
+In above example, "hi" will print in console after 5 seconds
+clearTimeout : we can even stop the execution of callback in setTimeout before the time runs out using clearTimeout.
+
+setInterval: it is used to assign a time for a callback function such that it will run everytime the given time is over
+setInterval(()=>{
+console.log("hi")
+},5000)
+In above example , "hi" will be print in console after every 5 seconds
+we can stop it using "clearInterval"
+let i = setInterval(()=>{
+console.log("hi")
+},5000)
+
+clearInterval(i) will stop the setInveral
+
+
+Application Programming Interfaces: API's are used to connect client to server or any other applications. 
+it acts like a bridge between frontend(client) and backend(server). it follows the client server model.
+ client requests the server using an URL(httpRequest) and server Responds to the Client(httpResponse)
+There are so many API's like SOAP API,REST API,GraphQL,gRPC etc..,
+we use mainly in web development, REST API(REPRESENTATIONAL STATE TRANSFER). These API's often send
+ responses in JSON(Javascript Object Notation) structure. 
+In Olden time, we used to use XMLHttpRequest() method for Requesting the server but modern browsers
+ supports a new method called "fetch"
+
+Every Asynchronous function returns Promise.
+Promise: 
+Promise is used to handle asynchronous functions, Promise is an object that contains eventual completion(or failure )
+ of asynchronous operations. basically, it contains details of an operation whether it will fulfill or reject
+  or in pending
+Promise contains a callback that takes resolve and reject . resolve function contains data that needs to be returned
+ when promise resolved , reject function contains error that needs to be returned when promise rejected.
+let p = new Promise((resolve,reject) =>
+{
+    let n = 20;
+    if (n % 2 == 0)
+    {
+        setTimeout(() => {
+					resolve("i got a job")
+				}, 5000)
+    }
+    else
+    {
+        reject("I did not get any job")
+    }
+})
+
+
+How to handle the promises? 
+  Promises can be handled using then and catch. Anything that returns by resolve will goto the then and Anything 
+  that returns by reject will go to the catch.
+  p
+    .then((res) => console.log(res))
+    .catch((err)=>console.log(err))
+
+fetch: fetch is the default web API which takes url and options for http requests and returns a Promise.
+     The Promises are then handled using then and catch.
+     fetch will not return direct data through promise, so we need to convert initial promise response into JSON .
+      it will result a new promise and upon resolving it, we get the data
+
+    fetch(url)
+    .then((res)=>res.json())
+    .then((data)=>console.log(data))
+    .catch((err)=>console.log(err))
+
+
+    we can solve promises using async await also, it is the modern method to handle promise
+
+Async Await:
+
+let p = new Promise((resolve, reject) => {
+    let n = 20;
+    if (n % 2 == 0) {
+        setTimeout(() => {
+            resolve("i got a job");
+        }, 5000); // This promise resolves after 5 seconds
+    } else {
+        reject("I did not get any job");
+    }
+});
+
+// Using async/await to consume the Promise 'p'
+async function consumePromise() {
+    console.log("Starting to wait for the promise...");
+    try {
+        // await pauses the execution of consumePromise until 'p' resolves or rejects
+        const result = await p;
+        console.log("Promise resolved:", result); // This will log "Promise resolved: i got a job"
+    } catch (error) {
+        // This block would execute if the promise 'p' rejected
+        console.error("Promise rejected:", error);
+    }
+    console.log("Finished waiting for the promise.");
+}
+
+consumePromise();
+
+Explanation of async/await in this context:
+
+async function consumePromise():
+
+The async keyword before a function declaration signifies that the function will perform asynchronous operations 
+and will implicitly return a Promise.Inside an async function, you can use the await keyword.
+
+const result = await p;:
+
+The await keyword can only be used inside an async function.
+When await is placed before a Promise (like p in this case), it pauses the execution of the async function
+ (consumePromise) until that Promise either resolves or rejects.
+If the Promise p resolves, the value it resolves with ("i got a job") is assigned to the result variable.
+If the Promise p rejects, an error is thrown, and the try...catch block will catch it.
+
+try...catch Block:
+
+It's good practice to wrap await calls in a try...catch block.
+If the awaited Promise p resolves, the code in the try block after await p will execute.
+If the awaited Promise p rejects, the code in the catch block will execute, allowing you to handle the error.
+
+What will happen when you run the async/await code:
+
+consumePromise() is called.
+"Starting to wait for the promise..." is logged immediately to the console.
+
+The await p line is encountered.
+
+The consumePromise function pauses its execution here. It does not block the main thread of JavaScript; 
+other code outside of consumePromise can continue to run.
+After 5 seconds, the Promise p resolves with "i got a job".
+The consumePromise function resumes its execution.
+
+"Promise resolved: i got a job" is logged to the console.
+
+"Finished waiting for the promise." is logged to the console.
+
+In summary:
+
+async/await provides a cleaner, more readable syntax for handling Promises, making asynchronous code look 
+and feel more synchronous, especially when dealing with multiple sequential asynchronous operations.
